@@ -2,6 +2,7 @@ import Post from '../models/Post.js';
 import User from '../models/User.js';
 
 // create post
+
 export const createPost = async (req, res) => {
    try {
       const { title, text, imgUrl } = req.body;
@@ -20,8 +21,8 @@ export const createPost = async (req, res) => {
          $push: { posts: newPost },
       });
 
-      res.json(newPost);
+      return res.json(newPost);
    } catch (error) {
-      res.json({ message: 'Щось пішло не так.' });
+      res.json({ message: `Щось пішло не так. ${error}` });
    }
 }

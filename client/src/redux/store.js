@@ -5,6 +5,6 @@ import postSlice from './features/post/postSlice.js';
 export const store = configureStore({
    reducer: {
       auth: authSlice,
-      post: postSlice
+      post: postSlice,
    },
-})
+});

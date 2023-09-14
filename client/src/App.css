@@ -127,4 +127,6 @@ a {
    resize: none;
 }
 
-
+.add-post__item-img {
+   width: 100%;
+}
