@@ -1,0 +1,130 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   text-decoration: none;
+}
+
+body {
+   font-family: 'Poppins', sans-serif;
+   font-size: 16px;
+   line-height: 18px;
+}
+
+a {
+   color: inherit;
+   border-bottom: 3px solid #fff;
+}
+
+.container {
+   max-width: 630px;
+   width: 100%;
+   margin: 0 auto;
+   padding: 0 5px;
+}
+
+.btn-1 {
+   padding: 10px;
+   border-radius: 10px;
+   border: none;
+   cursor: pointer;
+   text-transform: uppercase;
+   min-width: 100px;
+}
+.post__btns {
+   display: flex;
+   gap: 20px;
+}
+
+.btn-ok, .btn-cancel {
+   padding: 5px 10px;
+   text-transform: uppercase;
+}
+/*===========================================================================================================*\
+#navbar
+\*===========================================================================================================*/
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-transform: uppercase;
+   padding: 10px 0;
+   margin-bottom: 20px;
+}
+
+.navbar__item {
+   display: flex;
+   gap: 20px;
+}
+
+.navbar__btn {
+   font-size: inherit;
+   text-transform: uppercase;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+}
+/*===========================================================================================================*\
+#form-auth
+\*===========================================================================================================*/
+.form-auth {
+   /*display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;*/
+   text-align: center;
+}
+
+.form-auth__title {
+   font-size: 26px;
+   line-height: 30px;
+   text-transform: uppercase;
+   margin-bottom: 10px;
+}
+
+.form-auth__item {
+   max-width: 400px;
+   width: 100%;
+   display: block;
+   margin: 0 auto 20px;
+}
+
+.form-auth__input {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   text-align: center;
+   border-radius: 50px;
+}
+
+.form-auth__submit {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+}
+/*===========================================================================================================*\
+#add-post
+\*===========================================================================================================*/
+.add-post {
+   max-width: 400px;
+   width: 100%;
+   margin: 0 auto;
+}
+.add-post__item{
+   display: block;
+   margin-bottom: 20px;
+}
+
+.add-post__item input, textarea{
+   width: 100%;
+   padding: 10px;
+   outline: none;
+}
+
+.add-post__item textarea {
+   min-height: 146px;
+   resize: none;
+}
+
+
