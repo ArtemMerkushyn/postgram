@@ -35,7 +35,7 @@ export const getAll = async (req, res) => {
       if(!posts) {
          return res.json({ message: 'Постів немає.' });
       }
-      res.json(posts, popularPosts);
+      res.json({ posts, popularPosts });
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });
    }

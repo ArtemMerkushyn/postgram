@@ -104,6 +104,48 @@ a {
    gap: 10px;
 }
 /*===========================================================================================================*\
+#main-page
+\*===========================================================================================================*/
+.post-item__img img {
+   width: 100%;
+}
+
+.post-item__info {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 5px;
+}
+
+.post-item__title {
+   font-size: 20px;
+   line-height: 22px;
+   font-weight: 700;
+   margin-bottom: 5px;
+}
+
+.post-item__text {
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   margin-bottom: 5px;
+}
+
+.post-item__counter {
+   display: flex;
+   gap: 10px;
+}
+
+.post-item__counter button {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-size: 20px;
+   background: transparent;
+   border: none;
+}
+/*===========================================================================================================*\
 #add-post
 \*===========================================================================================================*/
 .add-post {
