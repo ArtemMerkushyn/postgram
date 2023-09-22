@@ -29,13 +29,13 @@ export const NavBar = () => {
                   Головна
                </NavLink>
                <NavLink 
-                  to={'/posts'}
+                  to={'posts'}
                   style={({ isActive }) => isActive ? activeStyles : undefined}
                   >
                   Мої пости
                </NavLink>
                <NavLink 
-                  to={'/new'}
+                  to={'new'}
                   style={({ isActive }) => isActive ? activeStyles : undefined}
                   >
                   Добавити пост

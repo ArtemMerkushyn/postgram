@@ -7,10 +7,9 @@ export const MainPage = () => {
    const dispatch = useDispatch();
    const { posts, popularPosts } = useSelector((state) => state.post);
 
-   console.log(posts)
    useEffect(() => {
       dispatch(getAllPosts())
-  }, [dispatch])
+  }, [dispatch]);
 
   if (!posts.length) {
       return (

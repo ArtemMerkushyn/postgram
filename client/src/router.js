@@ -5,6 +5,7 @@ import { RegisterPage } from './pages/RegisterPage.jsx';
 import { LoginPage } from './pages/LoginPage.jsx';
 import { MyPostsPage } from "./pages/MyPostsPage.jsx";
 import { AddPostPage } from './pages/AddPostPage.jsx';
+import { PostPage } from "./pages/PostPage.jsx";
 
 export const router = createBrowserRouter([
    {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
          {
             path: 'new',
             element: <AddPostPage/>
+         },
+         {
+            path: ':id',
+            element: <PostPage/>
          },
       ],
    }
