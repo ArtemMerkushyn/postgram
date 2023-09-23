@@ -11,20 +11,20 @@ export const MainPage = () => {
       dispatch(getAllPosts())
   }, [dispatch]);
 
-  if (!posts.length) {
-      return (
-          <div className='text-xl text-center text-white py-10'>
-              Постів немає.
-          </div>
-      )
-  }
-   return (
-      <div className='main-page'>
-            <div className="main-page__posts">
-                {posts?.map((post, idx) => (
-                    <PostsItem key={idx} post={post}/>
-                ))}
+    if (!posts.length) {
+        return (
+            <div className='text-xl text-center text-white py-10'>
+                Постів немає.
             </div>
+        );
+    }
+   return (
+    <div className='main-page'>
+        <div className="main-page__posts">
+            {posts?.map((post, idx) => (
+                <PostsItem key={idx} post={post}/>
+            ))}
         </div>
+    </div>
    );
 }
