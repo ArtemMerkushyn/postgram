@@ -32,9 +32,11 @@ export const getAll = async (req, res) => {
    try {
       const posts = await Post.find().sort('-createdAt');
       const popularPosts = await Post.find().sort('-views');
+
       if(!posts) {
          return res.json({ message: 'Постів немає.' });
       }
+
       res.json({ posts, popularPosts });
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });
@@ -48,6 +50,7 @@ export const getById = async (req, res) => {
          $inc: { views: 1 },
       },
       { new: true });
+
       res.json(post);
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });
@@ -57,15 +60,14 @@ export const getById = async (req, res) => {
 // get my posts
 export const getMyPosts = async (req, res) => {
    try {
-      const user = await User.findById(req.userId)
-      const list = await Promise.all(
-         user.posts.map((post) => {
-            return Post.findById(post._id, {
-               $pull: { posts: req.params.id }
-            });
-         })
-      );
-      res.json(list);
+      const user = await User.findById(req.userId);
+        const list = await Promise.all(
+            user.posts.map((post) => {
+                return Post.findById(post._id);
+            }),
+        )
+
+        res.json(list);
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });
    }
@@ -76,9 +78,11 @@ export const removePost = async (req, res) => {
    try {
       const post = await Post.findByIdAndDelete(req.params.id);
       if(!post) return res.json({ message: 'Такого посту не існує.' });
+
       await User.findByIdAndUpdate(req.userId, {
          $pull: { posts: req.params.id },
       });
+
       res.json({ message: 'Ви успішно видалили пост.' })
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' })

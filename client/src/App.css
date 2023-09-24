@@ -146,6 +146,11 @@ a {
    resize: none;
 }
 
+.post-item__wrapper {
+   display: flex;
+   justify-content: space-between;
+}
+
 .post-item__counter {
    display: flex;
    gap: 10px;
@@ -158,6 +163,21 @@ a {
    font-size: 20px;
    background: transparent;
    border: none;
+}
+
+.post-item__control {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.post-item__control button, .post-item__control a {
+   background: transparent;
+   border: none;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
 }
 /*===========================================================================================================*\
 #add-post

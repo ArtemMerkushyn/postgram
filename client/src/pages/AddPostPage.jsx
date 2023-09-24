@@ -30,7 +30,6 @@ export const AddPostPage = () => {
    return (
       <form
          className='add-post'
-         onSubmit={(e) => e.preventDefault()}
       >
          <label className='add-post__item'>
             <div>Встав url-картинки</div>
