@@ -77,7 +77,7 @@ export const PostPage = () => {
             {user?._id === post.author &&(
               <div className="post-item__control">
                 <button>
-                  <Link to={'/'}>
+                  <Link to={`/${params.id}/edit`}>
                     <AiTwotoneEdit />
                   </Link>
                 </button>

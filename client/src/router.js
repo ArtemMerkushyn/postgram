@@ -6,6 +6,7 @@ import { LoginPage } from './pages/LoginPage.jsx';
 import { MyPostsPage } from "./pages/MyPostsPage.jsx";
 import { AddPostPage } from './pages/AddPostPage.jsx';
 import { PostPage } from "./pages/PostPage.jsx";
+import { EdidPostPage } from './pages/EdidPostPage.jsx';
 
 export const router = createBrowserRouter([
    {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
          {
             path: ':id',
             element: <PostPage/>
+         },
+         {
+            path: ':id/edit',
+            element: <EdidPostPage/>
          },
       ],
    }

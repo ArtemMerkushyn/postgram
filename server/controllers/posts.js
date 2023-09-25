@@ -88,3 +88,20 @@ export const removePost = async (req, res) => {
       res.json({ message: 'Щось пішло не так.' })
    }
 }
+
+// update the post
+export const updatePost = async (req, res) => {
+   try {
+      const { imgUrl, title, text, id } = req.body;
+      const post = await Post.findById(id);
+
+      post.imgUrl = imgUrl;
+      post.title = title;
+      post.text = text;
+
+      await post.save();
+      res.json(post);
+   } catch (error) {
+      res.json({ message: 'Щось пішло не так.' });
+   }
+}
