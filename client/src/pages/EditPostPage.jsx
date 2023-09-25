@@ -1,21 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { createPost } from '../redux/features/post/postSlice.js';
+import { useNavigate, useParams } from 'react-router-dom';
 import TextareaAutosize from 'react-textarea-autosize';
+import axios from '../utils/axios.js';
+import { updatePost } from '../redux/features/post/postSlice.js';
 
-export const AddPostPage = () => {
-   const [ imgUrl, setImgUrl] = useState('');
-   const [ title, setTitle] = useState('')
-   const [ text, setText] = useState('')
+export const EditPostPage = () => {
+   const [imgUrl, setImgUrl] = useState('');
+   const [title, setTitle] = useState('');
+   const [text, setText] = useState('');
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const params = useParams();
 
-   const submitHandler = () => {
+   const fetchPost = useCallback(async () => {
+      const { data } = await axios.get(`/posts/${params.id}`);
+      setTitle(data.title);
+      setText(data.text);
+      setImgUrl(data.imgUrl);
+   }, [params.id]);
+
+   /*
+   const submitHandler = async () => {
       try {
-         dispatch(createPost({ imgUrl, title, text }));
-         navigate('/posts');
+            const updatedPost  = { id: params.id, imgUrl, title, text }
+            const res = await axios.put(`/posts/${params.id}`, updatedPost);
+
+            setImgUrl(updatedPost.imgUrl);
+            setTitle(updatedPost.title);
+            setText(updatedPost.text);
+      } catch (error) {
+          console.log(error);
+      }
+  }*/
+
+   const submitHandler = async () => {
+      try {
+         const updatedData  = { id: params.id, imgUrl, title, text };
+         await dispatch(updatePost({ id: params.id, updatedPost: updatedData }));
+         navigate('/');
       } catch (error) {
          console.log(error);
       }
@@ -25,14 +49,20 @@ export const AddPostPage = () => {
       setImgUrl('');
       setTitle('');
       setText('');
-  }
+   }
+
+   useEffect(() => {
+      fetchPost();
+   }, [fetchPost]);
 
    return (
       <form
          className='add-post'
+         onSubmit={e => e.preventDefault()}
       >
+         
          <label className='add-post__item'>
-            <div>Встав url-картинки</div>
+            <div>Встав новий url-картинки</div>
             <input 
                type="text" 
                value={imgUrl}
@@ -67,7 +97,7 @@ export const AddPostPage = () => {
                className='btn-ok'
                onClick={submitHandler}
             >
-               Добавити
+               Оновити
             </button>
 
             <button

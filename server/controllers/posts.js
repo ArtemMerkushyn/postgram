@@ -100,8 +100,8 @@ export const updatePost = async (req, res) => {
       post.text = text;
 
       await post.save();
-      res.json(post);
+      res.json({ post, message: 'Ви успішно оновили пост.' });
    } catch (error) {
-      res.json({ message: 'Щось пішло не так.' });
+      res.json({ message: `Щось пішло не так. ${error}` });
    }
 }
