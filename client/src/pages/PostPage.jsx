@@ -6,10 +6,13 @@ import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, } from 'react
 import Moment from 'react-moment';
 import TextareaAutosize from 'react-textarea-autosize';
 import { removePost } from '../redux/features/post/postSlice.js';
+import { createComment } from '../redux/features/comment/commentSlice.js';
 import { toast } from 'react-toastify';
 
 export const PostPage = () => {
     const [post, setPost] = useState(null);
+    const [comment, setComment] = useState('');
+
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const params = useParams();
@@ -21,6 +24,17 @@ export const PostPage = () => {
         toast('Пост був успішно видалений.');
         navigate('/');
         window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const handleSubmit = () => {
+      try {
+        const postId = params.id;
+        dispatch(createComment({ postId, comment }));
+        setComment('');
+        toast('Дякуємо за твою думку.');
       } catch (error) {
         console.log(error);
       }
@@ -44,7 +58,8 @@ export const PostPage = () => {
     }
    
     return (
-        <div className='post-item'>
+      <div className="post">
+        <div className='post-item mb0'>
           <div className="post-item__img">
             {post.imgUrl ? (
               <img src={post.imgUrl} alt="img"/>
@@ -91,6 +106,23 @@ export const PostPage = () => {
             )}
           </div>
         </div>
+        <div className="post-item">
+          <form
+            className='comment-form'
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <div className="comment-form__textarea">
+              <TextareaAutosize
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                style={{ height: '150px' }}
+                placeholder='Залиште ваш коментар'
+              />
+            </div>
+            <button className='comment-form__btn' onClick={handleSubmit}>Відправити</button>
+          </form>
+        </div>
+      </div>
     );
 }
 
