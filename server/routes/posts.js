@@ -1,31 +1,35 @@
 import { Router } from 'express';
 import { checkAuth } from '../utils/checkAuth.js';
-import { createPost, getAll, getById, getMyPosts, removePost, updatePost } from '../controllers/posts.js';
+import { createPost, getAll, getById, getMyPosts, getPostComments, removePost, updatePost } from '../controllers/posts.js';
 
 const router = Router();
 
-// create post
+// Create Post
 // http://localhost:3002/api/posts
-router.post('/', checkAuth, createPost);
+router.post('/', checkAuth, createPost)
 
-// get all posts
+// Get All Posts
 // http://localhost:3002/api/posts
-router.get('/', getAll);
+router.get('/', getAll)
 
-// get Post By Id
+// Get Post By Id
 // http://localhost:3002/api/posts/:id
-router.get('/:id', getById);
+router.get('/:id', getById)
 
-// get my posts
+// Update Post
+// http://localhost:3002/api/posts/:id
+router.put('/:id', checkAuth, updatePost)
+
+// Get My Posts
 // http://localhost:3002/api/posts/user/me
-router.get('/user/me', checkAuth, getMyPosts);
+router.get('/user/me', checkAuth, getMyPosts)
 
-// remove post
+// Remove Post
 // http://localhost:3002/api/posts/:id
-router.delete('/:id', checkAuth, removePost);
+router.delete('/:id', checkAuth, removePost)
 
-// update post
-// http://localhost:3002/api/posts/:id
-router.put('/:id', checkAuth, updatePost);
+// Get Post Comments
+// http://localhost:3002/api/posts/comments/:id
+router.get('/comments/:id', getPostComments)
 
 export default router;

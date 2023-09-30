@@ -6,14 +6,16 @@ import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, } from 'react
 import Moment from 'react-moment';
 import TextareaAutosize from 'react-textarea-autosize';
 import { removePost } from '../redux/features/post/postSlice.js';
-import { createComment } from '../redux/features/comment/commentSlice.js';
+import { createComment, getPostComments } from '../redux/features/comment/commentSlice.js';
 import { toast } from 'react-toastify';
+import { CommentItem } from '../components/CommentItem.jsx';
 
 export const PostPage = () => {
     const [post, setPost] = useState(null);
     const [comment, setComment] = useState('');
 
     const { user } = useSelector((state) => state.auth);
+    const { comments } = useSelector((state) => state.comment);
     const navigate = useNavigate();
     const params = useParams();
     const dispatch = useDispatch();
@@ -44,10 +46,22 @@ export const PostPage = () => {
         const { data } = await axios.get(`/posts/${params.id}`);
         setPost(data);
     }, [params.id]);
+
+    const fetchComments = useCallback(async () => {
+      try {
+        dispatch(getPostComments(params.id));
+      } catch (error) {
+        console.log(error);
+      }
+    }, [params.id, dispatch]);
     
     useEffect(() => {
       fetchPost();
     }, [fetchPost]);
+
+    useEffect(() => {
+      fetchComments()
+    }, [fetchComments]);
 
     if (!post) {
         return (
@@ -121,6 +135,9 @@ export const PostPage = () => {
             </div>
             <button className='comment-form__btn' onClick={handleSubmit}>Відправити</button>
           </form>
+          {comments?.map((cmt) => (
+            <CommentItem key={cmt._id} cmt={cmt} author={cmt.author}/>
+          ))}
         </div>
       </div>
     );
