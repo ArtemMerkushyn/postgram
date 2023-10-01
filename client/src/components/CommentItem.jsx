@@ -1,4 +1,5 @@
 import React from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const CommentItem = ({ cmt }) => {
   return (
@@ -8,7 +9,9 @@ export const CommentItem = ({ cmt }) => {
       </div>
       <div className="comment__item">
         <div className="comment__item-username">{cmt.username}</div>
-        <div className="comment__item-text">{cmt.comment}</div>
+        <div className="comment__item-text">
+          <TextareaAutosize disabled spellcheck="false" value={cmt.comment} />
+        </div>
       </div>
     </div>
   );

@@ -81,6 +81,7 @@ export const EditPostPage = () => {
                type="text" 
                value={title}
                onChange={(e) => setTitle(e.target.value)}
+               spellcheck="false"
                placeholder='Заголовок'
             />
          </label>
@@ -89,6 +90,7 @@ export const EditPostPage = () => {
             <TextareaAutosize
                value={text}
                onChange={(e) => setText(e.target.value)}
+               spellcheck="false"
                placeholder='Текст посту'
             />
          </label>

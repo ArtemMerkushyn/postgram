@@ -90,6 +90,8 @@ export const PostPage = () => {
           <div className="post-item__title">{post.title}</div>
           <div className="post-item__text">
             <TextareaAutosize
+              disabled 
+              spellcheck="false"
               value={post.text}
             />
           </div> 
@@ -130,6 +132,7 @@ export const PostPage = () => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 style={{ height: '150px' }}
+                spellcheck="false"
                 placeholder='Залиште ваш коментар'
               />
             </div>

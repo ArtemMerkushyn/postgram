@@ -16,6 +16,10 @@ a {
    border-bottom: 3px solid #fff;
 }
 
+textarea {
+   background: transparent;
+}
+
 .container {
    max-width: 630px;
    width: 100%;
@@ -214,11 +218,14 @@ a {
    padding-left: 10px;
 }
 
-.comment__item-text {
+.comment__item-text textarea{
    font-family: 'Poppins', sans-serif;
    font-size: 14px;
    line-height: 16px;
    font-weight: 300;
+   resize: none;
+   border: 0;
+   padding: 0;
 }
 /*===========================================================================================================*\
 #add-post
