@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { checkIsAuth, logout } from '../redux/features/auth/authSlice.js';
 import { toast } from 'react-toastify';
-import { BiUserPin, BiMessageAltAdd } from "react-icons/bi";
-import { ImExit } from "react-icons/im";
+import { BiUserPin, BiMessageAltAdd, BiLogOut, BiLogIn } from "react-icons/bi";
 
 export const NavBar = () => {
    const isAuth = useSelector(checkIsAuth);
@@ -48,7 +47,7 @@ export const NavBar = () => {
          <div className="navbar__item">
             {isAuth ? (
                   <button className='navbar__btn' onClick={logoutHandler}>
-                     <ImExit/>
+                     <BiLogOut/>
                      <span>Вийти</span>
                   </button>
                ) : (
@@ -56,8 +55,8 @@ export const NavBar = () => {
                      to={'/login'}
                      //style={({ isActive }) => isActive ? activeStyles : undefined}
                   >
-                     <ImExit/>
-                     Увійти
+                     <BiLogIn/>
+                     <span>Увійти</span>
                   </NavLink>
                )
             }

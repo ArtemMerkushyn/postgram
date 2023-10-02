@@ -57,8 +57,8 @@ textarea {
 }
 
 .navbar__logo {
-   font-size: 22px;
-   line-height: 24px;
+   font-size: 26px;
+   line-height: 30px;
    font-weight: 700;
    border-top: 2px solid #000;
    border-bottom: 2px solid #000;
@@ -68,6 +68,10 @@ textarea {
    display: flex;
    align-items: center;
    gap: 20px;
+}
+
+.navbar__item:nth-child(2) {
+   padding-top: 5px;
 }
 
 .navbar__item a,
@@ -99,8 +103,8 @@ textarea {
 }
 
 .navbar__item button svg {
-   font-size: 20px;
-   line-height: 20px;
+   font-size: 26px;
+   line-height: 26px;
 }
 
 .navbar__btn {
@@ -295,4 +299,30 @@ textarea {
 
 .add-post__item-img {
    width: 100%;
+}
+/*===========================================================================================================*\
+#adaptable to screen size
+\*===========================================================================================================*/
+@media screen and (max-width: 600px) {
+   .navbar {
+      justify-content: start;
+      gap: 20px;
+   }
+   .navbar__item:last-child {
+      margin-left: auto;
+   }
+
+   .navbar__item span {
+      display: none;
+   }
+}
+
+@media screen and (max-width: 375px) {
+   .navbar {
+      gap: 10px;
+   }
+
+   .navbar__item {
+      gap: 10px;
+   }
 }
