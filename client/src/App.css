@@ -56,9 +56,51 @@ textarea {
    margin-bottom: 20px;
 }
 
+.navbar__logo {
+   font-size: 22px;
+   line-height: 24px;
+   font-weight: 700;
+   border-top: 2px solid #000;
+   border-bottom: 2px solid #000;
+}
+
 .navbar__item {
    display: flex;
+   align-items: center;
    gap: 20px;
+}
+
+.navbar__item a,
+.navbar__item button {
+   color: #bdbdbd;
+   font-weight: 700 !important;
+   display: flex;
+   align-items: center;
+   transition: all .2s linear;
+}
+
+.navbar__item a:hover,
+.navbar__item button:hover {
+   color: #000;
+}
+
+.navbar__item a.active {
+   color: #000;
+}
+
+.navbar__item a svg {
+   font-size: 26px;
+   line-height: 26px;
+}
+
+.navbar__btn {
+   display: flex;
+   align-items: center;
+}
+
+.navbar__item button svg {
+   font-size: 20px;
+   line-height: 20px;
 }
 
 .navbar__btn {

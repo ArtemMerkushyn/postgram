@@ -1,55 +1,62 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { checkIsAuth, logout } from '../redux/features/auth/authSlice.js';
 import { toast } from 'react-toastify';
+import { BiUserPin, BiMessageAltAdd } from "react-icons/bi";
+import { ImExit } from "react-icons/im";
 
 export const NavBar = () => {
    const isAuth = useSelector(checkIsAuth);
    const dispatch = useDispatch();
+   const navigate = useNavigate();
 
    const logoutHandler = () => {
       dispatch(logout());
       window.localStorage.removeItem('token');
+      navigate('/');
       toast('Ви успішно вийшли');
    }
 
-   const activeStyles = {
-      borderBottom: '3px solid #000',
-   }
+   /*const activeStyles = {
+      color: 'orange',
+   }*/
+   
    return (
       <div className='navbar'>
-         <div className="navbar__logo">Logo</div>
+         <Link to={'/'}>
+            <div className="navbar__logo">Postgram</div>
+         </Link>
          {isAuth && (
             <div className="navbar__item">
                <NavLink 
-                  to={'/'}
-                  style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                  Головна
-               </NavLink>
-               <NavLink 
                   to={'posts'}
-                  style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                  Мої пости
+                  //style={({ isActive }) => isActive ? activeStyles : undefined}
+               >
+                  <BiUserPin/>
+                  <span>Мої пости</span>
                </NavLink>
                <NavLink 
                   to={'new'}
-                  style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                  Добавити пост
+                  //style={({ isActive }) => isActive ? activeStyles : undefined}
+               >
+                  <BiMessageAltAdd/>
+                  <span>Добавити пост</span>
                </NavLink>
             </div>
          )}
          <div className="navbar__item">
             {isAuth ? (
-                  <button className='navbar__btn' onClick={logoutHandler}>Вийти</button>
+                  <button className='navbar__btn' onClick={logoutHandler}>
+                     <ImExit/>
+                     <span>Вийти</span>
+                  </button>
                ) : (
                   <NavLink 
                      to={'/login'}
-                     style={({ isActive }) => isActive ? activeStyles : undefined}
-                     >
+                     //style={({ isActive }) => isActive ? activeStyles : undefined}
+                  >
+                     <ImExit/>
                      Увійти
                   </NavLink>
                )
