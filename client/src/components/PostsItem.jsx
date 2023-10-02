@@ -2,6 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const PostsItem = ({ post }) => {
   return (
@@ -17,11 +18,17 @@ export const PostsItem = ({ post }) => {
             {post.username}
           </div>
           <div className="post-item__date">
-            <Moment date={post.createdAt} format='D MMM YYYY'/>
+            <Moment date={post.createdAt} format='DD.MM.YY HH:mm'/>
           </div>
         </div>
         <div className="post-item__title">{post.title}</div>
-        <div className="post-item__text cropped">{post.text}</div>
+        <div className="post-item__text cropped"> 
+          <TextareaAutosize
+            disabled 
+            spellcheck="false"
+            value={post.text}
+          />
+        </div>
 
         <div className='post-item__counter'>
           <button className='post-item__counter-btn'>
@@ -34,5 +41,5 @@ export const PostsItem = ({ post }) => {
         </div>
       </div>
     </Link>
-  )
+  );
 }
