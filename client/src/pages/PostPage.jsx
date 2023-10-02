@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from '../utils/axios.js';
-import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, } from 'react-icons/ai';
+import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, AiOutlineSend } from 'react-icons/ai';
 import Moment from 'react-moment';
 import TextareaAutosize from 'react-textarea-autosize';
 import { removePost } from '../redux/features/post/postSlice.js';
@@ -136,7 +136,7 @@ export const PostPage = () => {
                 placeholder='Залиште ваш коментар'
               />
             </div>
-            <button className='comment-form__btn' onClick={handleSubmit}>Відправити</button>
+            <button className='comment-form__btn' onClick={handleSubmit}><AiOutlineSend /></button>
           </form>
           {comments?.map((cmt) => (
             <CommentItem key={cmt._id} cmt={cmt} author={cmt.author}/>

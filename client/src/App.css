@@ -259,7 +259,7 @@ textarea {
    border-top: 1px solid #000;
 }
 
-.comment-form__btn {
+.comment-form__btn svg{
    padding: 10px 5px;
    max-height: 40px;
 }
