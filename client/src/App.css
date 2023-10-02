@@ -245,7 +245,7 @@ textarea {
 }
 
 .comment-form__textarea {
-   width: 85%;
+   width: 92%;
 }
 
 .comment-form__textarea textarea {
@@ -259,9 +259,20 @@ textarea {
    border-top: 1px solid #000;
 }
 
-.comment-form__btn svg{
-   padding: 10px 5px;
-   max-height: 40px;
+.comment-form__btn {
+   border: none;
+   background: transparent;
+   cursor: pointer;
+}
+
+.comment-form__btn svg {
+   color: #bdbdbd;
+   font-size: 36px;
+   transition: all .2s linear;
+}
+
+.comment-form__btn svg:hover {
+   color: #000;
 }
 
 .comment__item {
