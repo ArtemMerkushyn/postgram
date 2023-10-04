@@ -4,7 +4,6 @@ import Comment from '../models/Comment.js';
 
 
 // create post
-
 export const createPost = async (req, res) => {
    try {
       const { title, text, imgUrl } = req.body;
@@ -63,15 +62,35 @@ export const getById = async (req, res) => {
 export const getMyPosts = async (req, res) => {
    try {
       const user = await User.findById(req.userId);
-        const list = await Promise.all(
-            user.posts.map((post) => {
-                return Post.findById(post._id);
-            }),
-        )
+      const list = await Promise.all(
+         user.posts.map((post) => {
+             return Post.findById(post._id);
+         }),
+      );
 
-        res.json(list);
+      res.json(list);
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });
+   }
+}
+
+// get user posts
+export const getUserPosts = async (req, res) => {
+   const idUser = req.params.idUser;
+   try {
+      const user = await User.findById(idUser);
+      if(!user) {
+         return res.json({ message: 'Даного користувача не знайдено.'});
+      }
+      
+      const list = await Promise.all(
+         user.posts.map((post) => {
+            return Post.findById(post._id);
+         })
+      );
+      res.json({ list, user });
+   } catch (error) {
+      res.json({ message: `Щось пішло не так. ${error}` });
    }
 }
 

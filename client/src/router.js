@@ -7,6 +7,7 @@ import { MyPostsPage } from "./pages/MyPostsPage.jsx";
 import { AddPostPage } from './pages/AddPostPage.jsx';
 import { PostPage } from "./pages/PostPage.jsx";
 import { EditPostPage } from './pages/EditPostPage.jsx';
+import { UserPostsPage } from './pages/UserPostsPage.jsx';
 
 export const router = createBrowserRouter([
    {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
          {
             path: 'posts',
             element: <MyPostsPage/>
+         },
+         {
+            path: 'user/:idUser/posts',
+            element: <UserPostsPage/>
          },
          {
             path: 'new',

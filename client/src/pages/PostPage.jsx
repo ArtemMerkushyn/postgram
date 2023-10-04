@@ -80,9 +80,11 @@ export const PostPage = () => {
             ) : null}
           </div>
           <div className="post-item__info">
-            <div className="post-item__username">
-              {post.username}
-            </div>
+            <Link to={`/user/${post.author}/posts`}>
+              <div className="post-item__username">
+                {post.username}
+              </div>
+            </Link>
             <div className="post-item__date">
               <Moment date={post.createdAt} format='D MMM YYYY'/>
             </div>
@@ -91,7 +93,7 @@ export const PostPage = () => {
           <div className="post-item__text">
             <TextareaAutosize
               disabled 
-              spellcheck="false"
+              spellCheck={false}
               value={post.text}
             />
           </div> 
@@ -132,7 +134,7 @@ export const PostPage = () => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 style={{ height: '150px' }}
-                spellcheck="false"
+                spellCheck={false}
                 placeholder='Залиште ваш коментар'
               />
             </div>

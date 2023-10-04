@@ -10,7 +10,7 @@ export const CommentItem = ({ cmt }) => {
       <div className="comment__item">
         <div className="comment__item-username">{cmt.username}</div>
         <div className="comment__item-text">
-          <TextareaAutosize disabled spellcheck="false" value={cmt.comment} />
+          <TextareaAutosize disabled spellCheck={false} value={cmt.comment} />
         </div>
       </div>
     </div>

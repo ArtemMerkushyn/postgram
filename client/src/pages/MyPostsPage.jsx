@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { PostsItem } from '../components/PostsItem';
 import axios from '../utils/axios.js';
+import { UserPostsItem } from '../components/UserPostsItem.jsx';
 
 export const MyPostsPage = () => {
    const [ posts, setPosts ] = useState([]);
@@ -21,9 +21,9 @@ export const MyPostsPage = () => {
    return (
       <div className='my-posts'>
          {posts?.map((post, idx) => {
-            return <PostsItem post={post} key={idx}/>
+            return <UserPostsItem post={post} key={idx}/>
+            
          })}
       </div>
    );
 }
-

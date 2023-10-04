@@ -4,7 +4,7 @@ import { AiFillEye, AiOutlineMessage } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import TextareaAutosize from 'react-textarea-autosize';
 
-export const PostsItem = ({ post }) => {
+export const UserPostsItem = ({ post }) => {
   return (
     <div className='post-item'>
       <Link to={`/${post._id}`}>
@@ -15,11 +15,9 @@ export const PostsItem = ({ post }) => {
         </div> 
       </Link>
       <div className="post-item__info">
-        <Link to={`user/${post.author}/posts`}>
-          <div className="post-item__username">
-            {post.username}
-          </div>
-        </Link>
+        <div className="post-item__username">
+          {post.username}
+        </div>
         <div className="post-item__date">
           <Moment date={post.createdAt} format='DD.MM.YY HH:mm'/>
         </div>
