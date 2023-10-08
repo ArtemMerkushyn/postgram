@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../utils/axios.js';
 import { UserPostsItem } from '../components/UserPostsItem.jsx';
+import { useSelector } from 'react-redux';
 
 export const MyPostsPage = () => {
    const [ posts, setPosts ] = useState([]);
+   const user = useSelector((state) => state.auth.user);
 
    const fetchMyPosts = async () => {
       try {
@@ -20,6 +22,15 @@ export const MyPostsPage = () => {
    
    return (
       <div className='my-posts'>
+         {user ? (
+            <div className="my-posts__info">
+               <div className="my-posts__info-item">{user.username}</div>
+               <div className="my-posts__info-item">Кількість постів: {posts.length}</div>
+            </div>
+            ) : (
+               <p>Loading user data...</p>
+            )
+         }
          {posts?.map((post, idx) => {
             return <UserPostsItem post={post} key={idx}/>
             

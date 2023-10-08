@@ -239,6 +239,21 @@ textarea {
    cursor: pointer;
 }
 
+.my-posts__info {
+   display: flex;
+   gap: 10px;
+   font-size: 20px;
+   line-height: 24px;
+   margin-bottom: 5px;
+}
+
+.my-posts__info-item:first-child {
+   padding-right: 10px;
+   border-right: 2px solid #000;
+}
+/*===========================================================================================================*\
+#comments
+\*===========================================================================================================*/
 .comment-form {
    display: flex;
    justify-content: space-between;
