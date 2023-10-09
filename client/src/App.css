@@ -295,14 +295,24 @@ textarea {
    padding-left: 10px;
 }
 
-.comment__item-text textarea{
+.comment__item-text--wrapper {
+   display: flex;
+   align-items: center;
+   padding: 5px 10px;
+   border-radius: 10px;
+   background: #eceaea;
+   width: auto;
+}
+
+.comment__item-text textarea {
    font-family: 'Poppins', sans-serif;
    font-size: 14px;
    line-height: 16px;
    font-weight: 300;
    resize: none;
    border: 0;
-   padding: 0;
+   padding: 0 0 0 10px;
+   display: inline-block;
 }
 
 .comment__item-info {
