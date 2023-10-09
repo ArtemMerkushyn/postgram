@@ -33,6 +33,10 @@ export const PostPage = () => {
 
     const handleSubmit = () => {
       try {
+        if(!user) {
+          setComment('');
+          return toast('Авторизуйтесь, щоб залишити ваш коментар.');
+        }
         const postId = params.id;
         dispatch(createComment({ postId, comment }));
         setComment('');
