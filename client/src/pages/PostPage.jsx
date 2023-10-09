@@ -90,7 +90,7 @@ export const PostPage = () => {
               </div>
             </Link>
             <div className="post-item__date">
-              <Moment date={post.createdAt} format='D MMM YYYY'/>
+              <Moment date={post.createdAt} format='DD.MM.YY HH:mm'/>
             </div>
           </div>
           <div className="post-item__title">{post.title}</div>

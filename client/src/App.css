@@ -304,6 +304,19 @@ textarea {
    border: 0;
    padding: 0;
 }
+
+.comment__item-info {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+}
+
+.comment__item-info--separate {
+   display: block;
+   height: 20px;
+   width: 2px;
+   background: #000;
+}
 /*===========================================================================================================*\
 #add-post
 \*===========================================================================================================*/
