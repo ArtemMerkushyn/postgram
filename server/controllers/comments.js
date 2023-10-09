@@ -12,7 +12,11 @@ export const createComment = async (req, res) => {
             return res.json({ message: 'Коментарій не може бути пустим.' });
         }
 
-        const newComment = new Comment({ comment, username: user.username,});
+        const newComment = new Comment({ 
+            comment, 
+            username: user.username,
+            author: req.userId
+        });
         await newComment.save()
 
         try {
