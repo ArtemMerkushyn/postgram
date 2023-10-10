@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from '../utils/axios.js';
 import { UserPostsItem } from '../components/UserPostsItem.jsx';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { AiTwotoneEdit } from 'react-icons/ai';
 
 export const MyPostsPage = () => {
    const [ posts, setPosts ] = useState([]);
@@ -36,6 +38,7 @@ export const MyPostsPage = () => {
                         Інформація про сторінку користувача відсутня.
                      </div>
                   )}
+                  <Link to={`/${user._id}/edit/description`}><AiTwotoneEdit /></Link>
                </div>
             </div>
             ) : (

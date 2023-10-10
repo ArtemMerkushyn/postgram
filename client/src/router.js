@@ -8,6 +8,7 @@ import { AddPostPage } from './pages/AddPostPage.jsx';
 import { PostPage } from "./pages/PostPage.jsx";
 import { EditPostPage } from './pages/EditPostPage.jsx';
 import { UserPostsPage } from './pages/UserPostsPage.jsx';
+import { EditUserDescription } from "./pages/EditUserDescription.jsx";
 
 export const router = createBrowserRouter([
    {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
             path: ':id/edit',
             element: <EditPostPage/>
          },
+         {
+            path: ':id/edit/description',
+            element: <EditUserDescription/>
+         }
       ],
    }
 ]);
