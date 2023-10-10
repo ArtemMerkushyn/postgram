@@ -14,7 +14,7 @@ export const MyPostsPage = () => {
          const sortedPosts = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
          setPosts(sortedPosts);
       } catch (error) {
-         console.log(error)
+         console.log(error);
       }
    }
 
@@ -28,6 +28,15 @@ export const MyPostsPage = () => {
             <div className="my-posts__info">
                <div className="my-posts__info-item">{user.username}</div>
                <div className="my-posts__info-item">Кількість постів: {posts.length}</div>
+               <div className="my-posts__info-item">
+                  {user.description ? (
+                     <div className='my-posts__info-item--description'>{user.description}</div>
+                  ) : (
+                     <div className='my-posts__info-item--description'>
+                        Інформація про сторінку користувача відсутня.
+                     </div>
+                  )}
+               </div>
             </div>
             ) : (
                <p>Loading user data...</p>
