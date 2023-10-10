@@ -37,6 +37,10 @@ export const PostPage = () => {
           setComment('');
           return toast('Авторизуйтесь, щоб залишити ваш коментар.');
         }
+        if(!comment.trim()) {
+          return toast('Коментар не може бути пустим.');
+        }
+
         const postId = params.id;
         dispatch(createComment({ postId, comment }));
         setComment('');

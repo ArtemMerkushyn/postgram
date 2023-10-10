@@ -10,7 +10,9 @@ export const MyPostsPage = () => {
    const fetchMyPosts = async () => {
       try {
          const { data } = await axios.get('/posts/user/me');
-         setPosts(data);
+         // сортую пости по часу створення в зворотньому порядку
+         const sortedPosts = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+         setPosts(sortedPosts);
       } catch (error) {
          console.log(error)
       }
