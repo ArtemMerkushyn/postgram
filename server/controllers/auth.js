@@ -102,3 +102,21 @@ export const getMe = async (req, res) => {
       res.json({ message: 'Немає доступу.' });
    }
 }
+
+
+// update user
+export const updateUser = async (req, res) => {
+   try {
+      const { description } = req.body;
+      const user = await User.findById(req.userId);
+      if(!user) {
+         return res.json({ message: 'Такого користувача немає.' });
+      }
+
+      user.description = description;
+      await user.save();
+      res.json({ post, message: 'Ви успішно добавили описання для вашої сторінки.' });
+   } catch (error) {
+      res.json(`Щось пішло не так. ${error}`);
+   }
+}
