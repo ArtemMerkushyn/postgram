@@ -14,6 +14,6 @@ router.post('/login', login);
 router.get('/me', checkAuth, getMe);
 
 //update user http://localhost:3002/api/auth/:id
-router.get('/:id', checkAuth, updateUser);
+router.put('/:id', checkAuth, updateUser);
 
 export default router;

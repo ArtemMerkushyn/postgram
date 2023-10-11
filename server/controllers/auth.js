@@ -112,10 +112,10 @@ export const updateUser = async (req, res) => {
       if(!user) {
          return res.json({ message: 'Такого користувача немає.' });
       }
-
+      
       user.description = description;
       await user.save();
-      res.json({ post, message: 'Ви успішно добавили описання для вашої сторінки.' });
+      res.json({ user, message: 'Ви успішно добавили описання для вашої сторінки.' });
    } catch (error) {
       res.json(`Щось пішло не так. ${error}`);
    }
