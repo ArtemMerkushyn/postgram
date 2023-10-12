@@ -290,8 +290,12 @@ textarea {
    height: 20px;
 }
 
-.my-posts__info-item--description {
+.my-posts__info-item--description textarea {
    font-size: 16px;
+   line-height: 18px;
+   font-weight: 500;
+   border: none;
+   resize: none;
 }
 /*===============================================================================*/
 .description-posts__item textarea {

@@ -4,6 +4,7 @@ import { UserPostsItem } from '../components/UserPostsItem.jsx';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AiTwotoneEdit } from 'react-icons/ai';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const MyPostsPage = () => {
    const [ posts, setPosts ] = useState([]);
@@ -32,7 +33,14 @@ export const MyPostsPage = () => {
                <div className="my-posts__info-item">Кількість постів: {posts.length}</div>
                <div className="my-posts__info-item">
                   {user.description ? (
-                     <div className='my-posts__info-item--description'>{user.description}</div>
+                     <div className='my-posts__info-item--description'>
+                        <TextareaAutosize 
+                           value={user.description}
+                           disabled 
+                           spellCheck={false}
+                        />
+                        {user.description}
+                     </div>
                   ) : (
                      <div className='my-posts__info-item--description'>
                         Інформація про сторінку користувача відсутня.
