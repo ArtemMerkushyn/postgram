@@ -4,8 +4,8 @@ import axios from '../utils/axios.js';
 import { UserPostsItem } from '../components/UserPostsItem.jsx';
 
 export const UserPostsPage = () => {
-  const [ posts, setPosts ] = useState([]);
   const [ userInfo, setUserInfo ] = useState(null);
+  const [ posts, setPosts ] = useState([]);
   const { idUser } = useParams();
 /*
   const fetchUserPosts = async () => {
@@ -25,8 +25,10 @@ export const UserPostsPage = () => {
 const fetchUserPosts = useCallback(async () => {
   try {
     const { data } = await axios.get(`/posts/${idUser}/posts`);
-    setPosts(data.list);
     setUserInfo(data.user);
+
+    const sortedPosts = data.list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setPosts(sortedPosts);
   } catch (error) {
     console.log(error);
   }
@@ -36,7 +38,6 @@ const fetchUserPosts = useCallback(async () => {
     const fetchData = async () => {
       await fetchUserPosts();
     };
-
     fetchData();
   }, [fetchUserPosts]);
 
@@ -44,13 +45,23 @@ const fetchUserPosts = useCallback(async () => {
     <div className='user-posts'>
       {userInfo ? (
         <div className="my-posts__info">
-           <div className="my-posts__info-item">{ userInfo.username }</div>
-           <div className="my-posts__info-item">Кількість постів: { userInfo.posts.length }</div>
+          <div className="my-posts__info-item no-hover">{ userInfo.username }</div>
+          <div className="my-posts__info-item">Кількість постів: { userInfo.posts.length }</div>
+          <div className="my-posts__info-item">
+            {userInfo.description ? (
+                <div className='my-posts__info-item--description'>{userInfo.description}</div>
+              ) : (
+              <div className='my-posts__info-item--description'>
+                  Інформація про сторінку користувача відсутня.
+              </div>
+            )}
+          </div>
         </div>
         ) : (
            <p>Loading user data...</p>
         )
       }
+
       {posts?.map((post, idx) => {
         return <UserPostsItem post={post} key={idx}/>
       })}

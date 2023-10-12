@@ -15,7 +15,7 @@ export const UserPostsItem = ({ post }) => {
         </div> 
       </Link>
       <div className="post-item__info">
-        <div className="post-item__username">
+        <div className="post-item__username no-hover">
           {post.username}
         </div>
         <div className="post-item__date">

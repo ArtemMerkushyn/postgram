@@ -47,7 +47,6 @@ export const MyPostsPage = () => {
          }
          {posts?.map((post, idx) => {
             return <UserPostsItem post={post} key={idx}/>
-            
          })}
       </div>
    );

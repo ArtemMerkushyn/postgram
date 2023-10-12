@@ -20,10 +20,14 @@ export const NavBar = () => {
    /*const activeStyles = {
       color: 'orange',
    }*/
-   
+   const refreshHandler = () => {
+      navigate('/');
+      window.location.reload();
+   }
+
    return (
       <div className='navbar'>
-         <Link to={'/'}>
+         <Link to={'/'} onClick={refreshHandler}>
             <div className="navbar__logo">Postgram</div>
          </Link>
          {isAuth && (
