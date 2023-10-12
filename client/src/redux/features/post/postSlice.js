@@ -82,7 +82,7 @@ export const postSlice = createSlice({
         [getAllPosts.fulfilled]: (state, action) => {
             state.loading = false;
             state.posts = action.payload.posts;
-            //state.popularPosts = action.payload.popularPosts;
+            state.popularPosts = action.payload.popularPosts;
         },
         [getAllPosts.rejected]: (state) => {
             state.loading = false;
