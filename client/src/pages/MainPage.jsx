@@ -14,7 +14,7 @@ export const MainPage = () => {
     if (!posts.length) {
         return (
             <div className='text-xl text-center text-white py-10'>
-                Постів немає.
+                Загрузка...
             </div>
         );
     }

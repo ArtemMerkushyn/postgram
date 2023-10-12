@@ -24,7 +24,7 @@ export const PostPage = () => {
       try {
         dispatch(removePost(params.id));
         toast('Пост був успішно видалений.');
-        navigate('/');
+        navigate('/posts');
         window.location.reload();
       } catch (error) {
         console.log(error);

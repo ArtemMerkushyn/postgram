@@ -7,8 +7,8 @@
 
 body {
    font-family: 'Poppins', sans-serif;
-   font-size: 16px;
-   line-height: 18px;
+   font-size: 14px;
+   line-height: 16px;
 }
 
 a {
@@ -17,6 +17,10 @@ a {
 }
 
 textarea {
+   font-size: 14px;
+   line-height: 16px;
+   font-weight: 500;
+   color: #000;
    background: transparent;
 }
 
@@ -38,6 +42,11 @@ textarea {
 .post__btn {
    display: flex;
    gap: 20px;
+}
+
+.post__btns {
+   display: flex;
+   gap: 3px;
 }
 
 .btn-ok, .btn-cancel {
@@ -181,10 +190,18 @@ textarea {
    margin-bottom: 5px;
 }
 
-.post-item__username {
+.post-item__username, .post-item__date{
    padding: 5px 10px;
    border-radius: 10px;
+   font-size: 16px;
+   line-height: 18px;
+   display: flex;
+   align-items: center;
    transition: all .2s linear;
+}
+
+.post-item__username {
+   font-weight: 700;
 }
 
 .post-item__username:hover {
@@ -213,7 +230,7 @@ textarea {
    overflow: hidden;
    text-overflow: ellipsis;
    margin-bottom: 5px;
-   max-height: 72px;
+   max-height: 64px;
    position: relative;
    z-index: -1;
 }
@@ -222,8 +239,7 @@ textarea {
    border: none;
    padding: 0;
    font-family: 'Poppins', sans-serif;
-   font-size: 16px;
-   line-height: 18px;
+
    color: #000;
    resize: none;
    overflow: hidden;
@@ -275,6 +291,7 @@ textarea {
 }
 
 .my-posts__info-item:first-child {
+   font-weight: 700;
    padding-right: 10px;
    border-right: 2px solid #000;
 }
@@ -288,14 +305,26 @@ textarea {
 .my-posts__info-item:last-child a {
    width: 20px;
    height: 20px;
+   font-size: 20px;
+   line-height: 20px;
+   font-weight: 500;
+}
+
+.my-posts__info-item--description {
+   font-size: 16px;
+   line-height: 18px;
+   font-weight: 500;
+   width: 96%;
 }
 
 .my-posts__info-item--description textarea {
+   font-family: 'Poppins', sans-serif;
    font-size: 16px;
    line-height: 18px;
    font-weight: 500;
    border: none;
    resize: none;
+   padding: 0;
 }
 /*===============================================================================*/
 .description-posts__item textarea {
@@ -327,7 +356,7 @@ textarea {
    font-family: 'Poppins', sans-serif;
    font-size: 14px;
    line-height: 16px;
-   font-weight: 300;
+   font-weight: 400;
    resize: none;
    border: none;
    border-top: 1px solid #000;
@@ -367,7 +396,7 @@ textarea {
    font-family: 'Poppins', sans-serif;
    font-size: 14px;
    line-height: 16px;
-   font-weight: 300;
+   font-weight: 400;
    resize: none;
    border: 0;
    padding: 0 0 0 10px;
@@ -381,6 +410,7 @@ textarea {
 }
 
 .comment__item-info--username {
+   font-weight: 700;
    padding: 5px 10px;
    border-radius: 10px;
    transition: all .2s linear;
@@ -404,9 +434,13 @@ textarea {
    width: 100%;
    margin: 0 auto;
 }
-.add-post__item{
+.add-post__item {
    display: block;
    margin-bottom: 20px;
+}
+
+.add-post__item input {
+   text-decoration: none;
 }
 
 .add-post__item input, textarea{

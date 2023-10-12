@@ -39,7 +39,6 @@ export const MyPostsPage = () => {
                            disabled 
                            spellCheck={false}
                         />
-                        {user.description}
                      </div>
                   ) : (
                      <div className='my-posts__info-item--description'>

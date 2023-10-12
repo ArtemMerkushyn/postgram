@@ -16,6 +16,7 @@ export const AddPostPage = () => {
       try {
          dispatch(createPost({ imgUrl, title, text }));
          navigate('/posts');
+         window.location.reload();
       } catch (error) {
          console.log(error);
       }
@@ -60,6 +61,7 @@ export const AddPostPage = () => {
                value={text}
                onChange={(e) => setText(e.target.value)}
                placeholder='Текст посту'
+               spellCheck={false}
             />
          </label>
          <div className='post__btns'>

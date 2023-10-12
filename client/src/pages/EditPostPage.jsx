@@ -39,7 +39,7 @@ export const EditPostPage = () => {
       try {
          const updatedData  = { id: params.id, imgUrl, title, text };
          await dispatch(updatePost({ id: params.id, updatedPost: updatedData }));
-         navigate('/');
+         navigate(`/${params.id}`);
       } catch (error) {
          console.log(error);
       }
