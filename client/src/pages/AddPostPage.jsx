@@ -15,7 +15,7 @@ export const AddPostPage = () => {
    const submitHandler = () => {
       try {
          dispatch(createPost({ imgUrl, title, text }));
-         navigate('/posts');
+         navigate('/');
          window.location.reload();
       } catch (error) {
          console.log(error);

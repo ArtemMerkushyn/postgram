@@ -23,7 +23,6 @@ export const PostPage = () => {
     const removePostHandler = () => {
       try {
         dispatch(removePost(params.id));
-        toast('Пост був успішно видалений.');
         navigate('/posts');
         window.location.reload();
       } catch (error) {
