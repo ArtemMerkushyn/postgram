@@ -24,7 +24,8 @@ app.use('/api/comments/', commentRoute);
 async function start() {
    try {
       await mongoose.connect(
-         'mongodb+srv://postgram:postgram13@cluster0.3cpg3qu.mongodb.net/postgram?retryWrites=true&w=majority'
+         //'mongodb+srv://postgram:postgram13@cluster0.3cpg3qu.mongodb.net/postgram?retryWrites=true&w=majority'
+         'mongodb+srv://user13:password13@cluster0.rwjfqgz.mongodb.net/'
       );
 
       app.listen(PORT, () => console.log(`server started on port: ${PORT}`));

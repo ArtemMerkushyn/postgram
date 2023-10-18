@@ -4,7 +4,7 @@ import { getAllPosts } from '../redux/features/post/postSlice';
 import { PostsItem } from '../components/PostsItem';
 
 export const MainPage = () => {
-    const [sortBy, setSortBy] = useState('date'); // По умолчанию сортируем по дате
+    const [sortBy, setSortBy] = useState('date');
     const dispatch = useDispatch();
     const { posts, popularPosts } = useSelector((state) => state.post);
 
@@ -16,7 +16,6 @@ export const MainPage = () => {
 
     const handleChangeSort = (e) => {
         setSortBy(e.target.value);
-        console.log(popularPosts)
     };
 
     if (!sortedPosts.length) {
@@ -30,10 +29,10 @@ export const MainPage = () => {
     return (
         <div className='main-page'>
             <div className='sort'>
-                <label htmlFor="sortBy">Сортувати по:</label>
+                <label htmlFor="sortBy"></label>
                 <select id="sortBy" value={sortBy} onChange={handleChangeSort}>
-                    <option value="date">Даті</option>
-                    <option value="popular">Популярності</option>
+                    <option value="date">Найновіші</option>
+                    <option value="popular">Найпопулярніші</option>
                 </select>
             </div>
 
