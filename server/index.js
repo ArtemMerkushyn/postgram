@@ -9,7 +9,7 @@ import commentRoute from './routes/comments.js';
 const app = express();
 
 //constants
-const PORT = 3002 || 3001;
+const PORT = 3002;
 export const secred = 'secredtoken';
 
 //middleware
