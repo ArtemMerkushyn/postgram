@@ -8,7 +8,7 @@
    },
    "type": "module",
    "scripts": {
-      "dev": "node index.js"
+      "dev": "nodemon index.js"
    },
    "keywords": [],
    "author": "",
