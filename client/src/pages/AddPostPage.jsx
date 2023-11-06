@@ -16,7 +16,7 @@ export const AddPostPage = () => {
       try {
          dispatch(createPost({ imgUrl, title, text }));
          navigate('/');
-         window.location.reload();
+         //window.location.reload();
       } catch (error) {
          console.log(error);
       }
